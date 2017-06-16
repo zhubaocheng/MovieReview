@@ -29,10 +29,17 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
       redirect_to movies_path
-      flash[:notice] = "你真牛！电影编辑陈成功！！！"
+      flash[:notice] = "你真牛！电影编辑成功！！！"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to movies_path
+    flash[:alert] = "电影已被成功删除！！！"
   end
 
   private
