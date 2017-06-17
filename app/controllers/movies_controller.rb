@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create, :edit, :update, :destroy]
-  bofore_action :find_movie_and_check_permission, only: [:eit, :update, :destroy]
+  before_action :find_movie_and_check_permission, only: [:eit, :update, :destroy]
 
   def index
     @movies = Movie.all
