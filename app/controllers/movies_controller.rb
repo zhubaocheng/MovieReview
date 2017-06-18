@@ -58,7 +58,7 @@ class MoviesController < ApplicationController
 
     if current_user != @movie.user
       redirect_to movies_path
-      flash[:notice] = "抱歉啦，你没有这个操作权限！！！"
+      flash[:alert] = "抱歉啦，你没有这个操作权限！！！"
     end
   end
 
