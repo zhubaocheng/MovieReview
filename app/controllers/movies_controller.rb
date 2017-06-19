@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
     @movie.user = current_user
 
     if @movie.save
+      current_user.join!(@movie)
       redirect_to movies_path
     else
       render :new
@@ -51,9 +52,9 @@ class MoviesController < ApplicationController
 
     if !current_user.is_member_of?(@movie)
       current_user.join!(@movie)
-      flash[:notice] = "收藏电影成功！"
+      flash[:notice] = "收藏电影《"+@movie.title+"》成功！"
     else
-      flash[:warning] = "你已经收藏了!"
+      flash[:warning] = "你已经收藏了《"+@movie.title+"》!"
     end
 
     redirect_to movie_path(@movie)
@@ -64,9 +65,9 @@ class MoviesController < ApplicationController
 
     if current_user.is_member_of?(@movie)
       current_user.quit!(@movie)
-      flash[:alert] = "你已经取消收藏！！！"
+      flash[:alert] = "你已经取消收藏《"+@movie.title+"》！！！"
     else
-      flash[:warning] = "你未收藏，怎么退出 XD"
+      flash[:warning] = "你未收藏《"+@movie.title+"》，怎么退出 XD"
     end
 
     redirect_to movie_path(@movie)
