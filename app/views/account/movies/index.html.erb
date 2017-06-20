@@ -15,11 +15,8 @@
         <tr>
           <td><%= link_to(movie.title, movie_path(movie))%></td>
           <td><%= render_movie_description(movie) %></td>
-<<<<<<< HEAD
           <td><%= movie.reviews.count%></td>
-=======
           <td><%= movie.reviews .count%></td>
->>>>>>> ceedc50aa7d90f882987d4a3e0b927699c1e8afe
           <td><%= movie.updated_at%></td>
         </tr>
       <% end %>
