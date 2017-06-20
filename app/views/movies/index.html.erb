@@ -9,6 +9,7 @@
       <th> 创建者 </th>
     </thead>
     <tbody>
+<<<<<<< HEAD
       <% @movies.each do |movie| %>
         <tr>
           <td><%= link_to(movie.title, movie_path(movie)) %></td>
@@ -23,6 +24,9 @@
           </td>
         </tr>
       <% end %>
+=======
+      <%= render :partial => "movie_item", :collection => @movies, :as => :movie %>
+>>>>>>> ceedc50aa7d90f882987d4a3e0b927699c1e8afe
     </tbody>
   </table>
 </div>
