@@ -44,7 +44,7 @@ class MoviesController < ApplicationController
 
     @movie.destroy
       redirect_to movies_path
-      flash[:alert] = "电影已被成功删除！！！"
+      flash[:alert] = "已被成功删除《"+@movie.title+"》！！！"
   end
 
   def join
